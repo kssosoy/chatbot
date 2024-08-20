@@ -43,14 +43,14 @@ export default function Chat() {
   };
 
   const handleMoreButtonClick = () => {
-    // ... 버튼을 누르면 추가적인 로딩 애니메이션 추가
-    setMessages((prevMessages) => [
-      ...prevMessages,
-      { sender: 'AI', text: 'loading' } // AI 로딩 메시지 추가
-    ]);
-
-    
-  };
+    // 10초 후에 로딩 애니메이션 추가
+    setTimeout(() => {
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { sender: 'AI', text: 'loading' } // AI 로딩 메시지 추가
+      ]);
+    }, 10000); // 10초 (10000ms) 딜레이 후 로딩 추가
+};
 
   return (
     <div className="chat-container">
