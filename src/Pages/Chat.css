@@ -192,6 +192,10 @@ footer .send-button {
   align-items: center;
   justify-content: center;
 }
+footer input::placeholder {
+  color: black; /* 플레이스홀더 색상을 검정색으로 설정 */
+}
+
 
 footer .send-button img {
   width: 24px;
