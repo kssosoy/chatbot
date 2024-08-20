@@ -1,3 +1,4 @@
+/* 기본 스타일 유지 */
 * {
   margin: 0;
   padding: 0;
@@ -41,7 +42,6 @@ h2 {
   padding: 10px;
   overflow-y: auto;
   background-color: #f4f4f4;
-  position: relative;
 }
 
 .message {
@@ -185,4 +185,80 @@ footer .send-button {
 footer .send-button img {
   width: 24px;
   height: 24px;
+}
+
+/* 모바일 환경에 맞춘 반응형 스타일 */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 16px;
+  }
+
+  .chat-window {
+    padding: 5px;
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .avatar img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .message .text {
+    padding: 8px;
+    max-width: 80%; /* 모바일 화면에서 더 넓게 사용 */
+    font-size: 14px;
+  }
+
+  footer {
+    padding: 8px;
+  }
+
+  footer input {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  footer .send-button {
+    padding: 8px;
+  }
+
+  footer .send-button img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 14px;
+  }
+
+  .avatar {
+    width: 35px;
+    height: 35px;
+  }
+
+  .avatar img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .message .text {
+    padding: 6px;
+    max-width: 90%;
+    font-size: 12px;
+  }
+
+  footer input {
+    font-size: 12px;
+  }
+
+  footer .send-button img {
+    width: 18px;
+    height: 18px;
+  }
 }

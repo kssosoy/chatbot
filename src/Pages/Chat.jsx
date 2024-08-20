@@ -20,7 +20,7 @@ export default function Chat() {
       setMessages([...messages, { sender: 'user', text: userInput }]);
       setUserInput('');
 
-      // 마지막 질문 이후 로딩 애니메이션 표시
+      // 기존 로직: 마지막 질문 이후 로딩 애니메이션 표시
       if (step < questions.length) {
         setTimeout(() => {
           setMessages((prevMessages) => [
@@ -37,11 +37,19 @@ export default function Chat() {
             ...prevMessages,
             { sender: 'AI', text: 'loading' } // AI 로딩 메시지 추가
           ]);
-
-          
         }, 1000);
       }
     }
+  };
+
+  const handleMoreButtonClick = () => {
+    // ... 버튼을 누르면 추가적인 로딩 애니메이션 추가
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      { sender: 'AI', text: 'loading' } // AI 로딩 메시지 추가
+    ]);
+
+    
   };
 
   return (
@@ -78,7 +86,7 @@ export default function Chat() {
       </div>
 
       <footer>
-        <button className="more-button">...</button>
+        <button className="more-button" onClick={handleMoreButtonClick}>...</button>
         <div className="input-container">
           <input
             type="text"
