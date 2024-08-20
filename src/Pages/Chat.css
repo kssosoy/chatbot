@@ -9,7 +9,7 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  min-height: 100vh; /* 화면 전체를 덮는 높이 */
+  height:100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -180,6 +180,7 @@ footer input {
   font-size: 16px;
   outline: none;
   background-color: transparent;
+  color: black; /* 입력할 때 글씨 색상을 검정으로 설정 */
 }
 
 footer .send-button {
@@ -191,9 +192,6 @@ footer .send-button {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-footer input::placeholder {
-  color: black; /* 플레이스홀더 색상을 검정색으로 설정 */
 }
 
 
