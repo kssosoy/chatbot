@@ -156,11 +156,11 @@ footer {
 footer .more-button {
   background: none;
   border: none;
-  font-size: 18px;
+  font-size: 30px;
   cursor: pointer;
   color: black;
   background-color: #C4D4FC;
-  margin-right: 10px;
+  margin-right:10px;
 }
 
 .input-container {
