@@ -21,6 +21,7 @@ export default function Chat() {
       setMessages([...messages, { sender: 'user', text: userInput }]);
       setUserInput('');
 
+      // 기존 로직: 마지막 질문 이후 로딩 애니메이션 표시
       if (step < questions.length) {
         setTimeout(() => {
           setMessages((prevMessages) => [
@@ -30,12 +31,27 @@ export default function Chat() {
           setStep(step + 1);
         }, 1000);
       } else {
+        setLoading(true); // 마지막 질문 이후 로딩 상태 활성화
+
         setTimeout(() => {
-          setLoading(true); // 로딩 상태 활성화
+          setMessages((prevMessages) => [
+            ...prevMessages,
+            { sender: 'AI', text: 'loading' } // AI 로딩 메시지 추가
+          ]);
         }, 1000);
       }
     }
   };
+
+  const handleMoreButtonClick = () => {
+    // 10초 후에 로딩 애니메이션 추가
+    setTimeout(() => {
+      setMessages((prevMessages) => [
+        ...prevMessages,
+        { sender: 'AI', text: 'loading' } // AI 로딩 메시지 추가
+      ]);
+    }, 10000); // 10초 (10000ms) 딜레이 후 로딩 추가
+};
 
   return (
     <div className="chat-container">
@@ -50,24 +66,28 @@ export default function Chat() {
             key={index}
             className={`message ${message.sender === 'AI' ? 'ai' : 'user'}`}
           >
-            {message.sender === 'AI' && <div className="avatar">
-              <img src={aiIcon} alt="AI" />  {/* 이미지로 대체 */}
-            </div>}
-            <div className="text">{message.text}</div>
+            {message.sender === 'AI' && (
+              <div className="avatar">
+                <img src={aiIcon} alt="AI" /> {/* AI 이미지 */}
+              </div>
+            )}
+            <div className="text">
+              {message.text === 'loading' ? (
+                <div className="loading-dots">
+                  <div className="dot"></div>
+                  <div className="dot"></div>
+                  <div className="dot"></div>
+                </div>
+              ) : (
+                message.text
+              )}
+            </div>
           </div>
         ))}
-
-        {loading && (
-          <div className="loading">
-            <div className="dot"></div>
-            <div className="dot"></div>
-            <div className="dot"></div>
-          </div>
-        )}
       </div>
 
       <footer>
-        <button className="more-button">...</button>
+        <button className="more-button" onClick={handleMoreButtonClick}>...</button>
         <div className="input-container">
           <input
             type="text"
@@ -77,7 +97,7 @@ export default function Chat() {
             onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
           />
           <button className="send-button" onClick={handleSendMessage}>
-            <img src={send}/>
+            <img src={send} />
           </button>
         </div>
       </footer>
