@@ -7,7 +7,8 @@ export default function Chat() {
   const questions = [
     '도움이 필요하신가요?',
     '사람들은 요즘 지구가 멸망하면 무엇을 해야 할지에 대한 질문을 많이 해요.',
-    '매미처럼 맴맴맴 울라고 대답합니다.'
+    '매미처럼 맴맴맴 울라고 대답합니다.',
+    '아뇨, 원래는 사랑하는 가족들과 친구들과 남은 시간을 행복하게 보내라고 말했어요. 하지만 생각이 바뀌었습니다.'
   ];
 
   const [messages, setMessages] = useState([{ sender: 'AI', text: questions[0] }]);
