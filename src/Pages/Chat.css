@@ -106,7 +106,7 @@ h2 {
 .message.user .text {
   background-color: #222;
   color: white;
-  text-align: right;
+  text-align: center;
   border-bottom-right-radius: 0;
 }
 
